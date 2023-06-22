@@ -8,6 +8,10 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # def twitter
   # end
 
+  def google_oauth2
+    byebug
+  end
+
   # More info at:
   # https://github.com/heartcombo/devise#omniauth
 
