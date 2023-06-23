@@ -1,20 +1,11 @@
 # frozen_string_literal: true
 
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
-  # You should configure your model like this:
-  # devise :omniauthable, omniauth_providers: [:twitter]
-
-  # You should also create an action method in this controller like this:
-  # def twitter
-  # end
+  include OmniConcern
 
   def google_oauth2
-    google_strategy = AuthenticationViaOauth::Google.new(auth, self)
-    google_strategy.call
+    authenticate
   end
-
-  # More info at:
-  # https://github.com/heartcombo/devise#omniauth
 
   def github
     byebug
