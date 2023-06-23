@@ -68,7 +68,7 @@ GEM
       tzinfo (~> 2.0)
     addressable (2.8.4)
       public_suffix (>= 2.0.2, < 6.0)
-    bcrypt (3.1.18)
+    bcrypt (3.1.19)
     bindex (0.8.1)
     bootsnap (1.16.0)
       msgpack (~> 1.2)
@@ -157,6 +157,9 @@ GEM
       hashie (>= 3.4.6)
       rack (>= 2.2.3)
       rack-protection
+    omniauth-github (2.0.1)
+      omniauth (~> 2.0)
+      omniauth-oauth2 (~> 1.8)
     omniauth-google-oauth2 (1.1.1)
       jwt (>= 2.0)
       oauth2 (~> 2.0.6)
@@ -236,7 +239,7 @@ GEM
     tailwindcss-rails (2.0.29-arm64-darwin)
       railties (>= 6.0.0)
     thor (1.2.2)
-    timeout (0.3.2)
+    timeout (0.4.0)
     turbo-rails (1.4.0)
       actionpack (>= 6.0.0)
       activejob (>= 6.0.0)
@@ -276,6 +279,7 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   omniauth
+  omniauth-github (~> 2.0.0)
   omniauth-google-oauth2
   omniauth-rails_csrf_protection
   pg (~> 1.1)
