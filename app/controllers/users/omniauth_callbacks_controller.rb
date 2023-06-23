@@ -8,6 +8,11 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # def twitter
   # end
 
+  def google_oauth2
+    google_strategy = AuthenticationViaOauth::Google.new(auth, self)
+    google_strategy.call
+  end
+
   # More info at:
   # https://github.com/heartcombo/devise#omniauth
 
@@ -25,10 +30,20 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   #   super
   # end
 
-  # protected
+  protected
+
+  def after_omniauth_failure_path_for(_scope)
+    new_user_session_path
+  end
 
   # The path used when OmniAuth fails
   # def after_omniauth_failure_path_for(scope)
   #   super(scope)
   # end
+
+  private
+
+  def auth
+    @auth ||= request.env['omniauth.auth']
+  end
 end
