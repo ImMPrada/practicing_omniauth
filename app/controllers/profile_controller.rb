@@ -3,5 +3,6 @@ class ProfileController < ApplicationController
 
   def show
     @user = current_user
+    @connected_services = @user.services
   end
 end

@@ -1,1 +1,22 @@
 <h1><%= "Hello #{@user.username}" %></h1>
+
+<h3>Services</h3>
+
+<div class="flex-col">
+  <span class="block flex gap-2">
+    Google:
+    <% if @user.google %>
+      Connected
+    <% else %>
+      <%= button_to "Connect", omniauth_authorize_path(:user, :google_oauth2), data: { turbo: false } %>
+    <% end %>
+  </span>
+  <span class="block flex gap-2">
+    Github:
+    <% if @user.github %>
+      Connected
+    <% else %>
+      <%= button_to "Connect", omniauth_authorize_path(:user, :github), data: { turbo: false } %>
+    <% end %>
+  </span>
+</div>
