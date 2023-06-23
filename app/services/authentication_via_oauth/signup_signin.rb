@@ -51,5 +51,9 @@ module AuthenticationViaOauth
       flash[:alert] = 'You can not login'
       resource_controller.redirect_to(new_user_session_path)
     end
+
+    def new_user_session_path
+      resource_controller.new_user_session_path
+    end
   end
 end
