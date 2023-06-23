@@ -11,6 +11,14 @@ class User < ApplicationRecord
 
   validates :username, uniqueness: true, presence: true
   validates :avatar_url, presence: true
+  
+  def google
+    services.find_by(provider: 'google_oauth2')
+  end
+
+  def github
+    services.find_by(provider: 'github')
+  end
 
   private
 
@@ -27,7 +35,8 @@ class User < ApplicationRecord
     service = Service.new(service_params)
     return nil unless user.save
 
-    user.services << service if service.save
+    user.services << service
+    service.save
     user
   end
 end

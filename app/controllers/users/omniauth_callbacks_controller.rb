@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
-  include OmniConcern
+  include OmniAuthConcern
 
   def google_oauth2
-    authenticate
+    resolve_authentication_or_add_service
   end
 
   def github
-    byebug
+    resolve_authentication_or_add_service
   end
 
   # GET|POST /resource/auth/twitter
